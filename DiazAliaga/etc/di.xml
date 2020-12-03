@@ -38,5 +38,39 @@
         </arguments>
     </type>
 
-    <!-- Faltan Command Proxy y Logger -->
+    <!-- Command -->
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="hiberus:exams:show" xsi:type="object">Hiberus\DiazAliaga\Console\Command\ShowExamsCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Plugin -->
+    <type name="Hiberus\DiazAliaga\Api\ExamRepositoryInterface">
+        <plugin name="hiberus-diazaliaga-plugin" type="Hiberus\DiazAliaga\Plugin\Nota" />
+    </type>
+
+    <!-- Logger -->
+    <virtualType name="Hiberus\DiazAliaga\Logger\ControlDebug" type="Magento\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="fileName" xsi:type="string">/var/log/hiberus_diazaliaga.log</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Hiberus\DiazAliaga\Logger\Monolog" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug" xsi:type="object">Hiberus\DiazAliaga\Logger\ControlDebug</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Hiberus\DiazAliaga\Bloque\Listado">
+        <arguments>
+            <argument name="logger" xsi:type="object">Hiberus\DiazAliaga\Logger\Monolog</argument>
+        </arguments>
+    </type>
+
 </config>

@@ -8,7 +8,7 @@ use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Exception\LocalizedException;
 
 /**
- * Interface ExamRepositoryInterface
+ * Interface Hiberus\DiazAliaga\Api\Data\ExamRepositoryInterface
  * @package Hiberus\DiazAliaga\Api
  */
 interface ExamRepositoryInterface
@@ -16,16 +16,16 @@ interface ExamRepositoryInterface
     /**
      * Save an Exam
      *
-     * @param ExamInterface $exam
-     * @return ExamInterface
+     * @param \Hiberus\DiazAliaga\Api\Data\ExamInterface $exam
+     * @return \Hiberus\DiazAliaga\Api\Data\ExamInterface
      */
-    public function save(Data\ExamInterface $exam);
+    public function save(\Hiberus\DiazAliaga\Api\Data\ExamInterface $exam);
 
     /**
      * Get Exam by an Id
      *
      * @param int $examId
-     * @return ExamInterface
+     * @return \Hiberus\DiazAliaga\Api\Data\ExamInterface
      */
     public function getById($examId);
 
@@ -33,7 +33,7 @@ interface ExamRepositoryInterface
      * Retrieve exams matching the specified criteria.
      *
      * @param SearchCriteriaInterface $searchCriteria
-     * @return \Hiberus\Sample\Api\Data\ExamSearchResultsInterface
+     * @return \Hiberus\DiazAliaga\Api\Data\ExamSearchResultsInterface
      * @throws LocalizedException
      */
     public function getList(SearchCriteriaInterface $searchCriteria);
@@ -41,7 +41,7 @@ interface ExamRepositoryInterface
     /**
      * Delete a Exam
      *
-     * @param ExamInterface $exam
+     * @param \Hiberus\DiazAliaga\Api\Data\ExamInterface $exam
      * @return bool
      */
     public function delete(Data\ExamInterface $exam);

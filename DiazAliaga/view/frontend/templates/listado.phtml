@@ -1,0 +1,56 @@
+<?php /**  @var \Hiberus\DiazAliaga\Block\Listado $block */?>
+
+<h2 class="title"><?= __('Listado examenes') ?></h2>
+
+<ul class="list_exams">
+    <?php
+    $cont=0;
+    $media=0;
+    $mejores=3;
+    $notaAlta=0;
+
+    foreach ($block->getListExams() as $exam): ?>
+
+        <li class="list-exam" <? if ($mejores == 3):?> style="background: #0f5293"
+                                    <? elseif ($mejores ==2): ?> style="background: #0fa7ff"
+                                    <? elseif($mejores ==1): ?> style="background: #00ade2" <?endif;?> >
+            <p><?=$first=$exam->getFirstname()?></p>
+            <p><?=$last=$exam->getLastname()?></p>
+            <div class="notas"
+                <?if ($exam->getMark() >= 5):?> style="background: darkseagreen"
+                <?else:?> style="background: indianred"
+            <?endif;?>
+            >
+                <p><?=$mark=$exam->getMark()?></p>
+
+            </div>
+            <?$media+=$mark?>
+            <?$cont++?>
+            <?$mejores--?>
+            <?php if($exam->getMark() > $notaAlta){
+                $notaAlta = $exam->getMark();
+            }?>
+            <hr>
+        </li>
+
+    <?php endforeach; ?>
+    <input type="button" id="boton_notas" value="Ocultar/Mostrar">
+    <input type="button" id="boton_alta" value="Ver Nota + Alta">
+</ul>
+<?php
+$mediatot= $media/$cont;
+$block->logdebug($cont,$mediatot);
+?>
+<p><?= __('Total number of students: %1', [$cont])?></p>
+
+<p><?=__('Marks media: %1',[$mediatot])?></p>
+
+
+<script type="text/x-magento-init">{
+            ".list_exams":{
+                "Hiberus_DiazAliaga/js/notas":{"notaAlta":"<?=$notaAlta?>"}
+            }
+        }
+</script>
+
+

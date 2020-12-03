@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Hiberus_DiazAliaga::diazaliaga" title="Hiberus_exam" translate="title" module="Hiberus_DiazAliaga" sortOrder="999" resource="Hiberus_DiazAliaga::diazaliaga"/>
+        <add id="Hiberus_DiazAliaga::diazaliaga_config" title="Configuration Fields" translate="title" module="Hiberus_DiazAliaga" sortOrder="10" parent="Hiberus_DiazAliaga::diazaliaga" action="admin/system_config/edit/section/hiberus_diazaliaga/" resource="Hiberus_DiazAliaga::diazaliaga_config"/>
+    </menu>
+</config>

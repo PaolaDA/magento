@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+   <!-- Datos de la tabla examenes -->
+    <route url="/V1/diazaliaga/exams" method="GET">
+        <service class="Hiberus\DiazAliaga\Api\ExamRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <!-- Borrar alumnos por id -->
+    <route url="/V1/diazaliaga/exams/:id" method="DELETE">
+        <service class="Hiberus\DiazAliaga\Api\ExamRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <!-- Guardar un nuevo alumno y su nota -->
+    <route url="/V1/diazaliaga/exams" method="POST">
+        <service class="Hiberus\DiazAliaga\Api\ExamRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+</routes>

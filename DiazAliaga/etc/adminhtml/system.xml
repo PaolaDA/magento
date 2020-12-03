@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="hiberus_exam" translate="label" sortOrder="1">
+            <label>HIBERUS_EXAM</label>
+        </tab>
+        <section id="hiberus_diazaliaga" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Exam Configuration</label>
+            <tab>hiberus_exam</tab>
+            <resource>Hiberus_DiazAliaga::config</resource>
+            <group id="general_config_exam" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>Config Exam Label</label>
+                <hide_in_single_store_mode>1</hide_in_single_store_mode>
+                <field id="eleList" translate="label" type="text" sortOrder="1" showInDefault="1" canRestore="1">
+                    <label>Elementos del listado de examenes</label>
+                </field>
+                <field id="notaAprobado" translate="label" type="text" sortOrder="2" showInDefault="1" canRestore="1">
+                    <label>Nota para aprobar</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -69,13 +69,20 @@ class PopulateDataModel implements DataPatchInterface
      */
     private function populateExams()
     {
+        $examenes  =  [
+            ['nombre' => 'Paola', 'apellido' => 'Diaz'],
+            ['nombre' => 'David', 'apellido' => 'Abad'],
+            ['nombre' => 'Juan', 'apellido' => 'Sanchez'],
+            ['nombre' => 'Pepe', 'apellido' => 'Martinez'],
+            ['nombre' => 'Maria', 'apellido' => 'Ortiz'],
+        ];
         for ($i = 0; $i < self::NUMBER_OF_EXAMS; $i++) {
 
             /** @var ExamInterface $exam */
             $exam = $this->examFactory->create();
 
-            $exam->setFirstname('pepe')
-                ->setLastName('martinez')
+            $exam->setFirstname($examenes[$i]['nombre'])
+                ->setLastName($examenes[$i]['apellido'])
                 ->setMark(rand(0*100,10*100)/100)
             ;
 

@@ -81,7 +81,7 @@ class ExamRepository implements ExamRepositoryInterface
      * @return Data\ExamInterface
      * @throws CouldNotSaveException
      */
-    public function save(Data\ExamInterface $exam)
+    public function save(\Hiberus\DiazAliaga\Api\Data\ExamInterface $exam)
     {
         try {
             $this->resourceExam->save($exam);
